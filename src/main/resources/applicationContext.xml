@@ -7,13 +7,33 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean"
+<!--    <bean id="collectionInjection" class="net.proselyte.collectionInjection.CollectionInjection"/>-->
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="electronicMusicBean"
+          class="com.mnykh.springcourse.ElectronicMusic">
+    </bean>
+
+    <bean id="classicalMusicBean"
+          class="com.mnykh.springcourse.ClassicalMusic">
+    </bean>
+
+    <bean id="rockMusicBean"
           class="com.mnykh.springcourse.RockMusic">
     </bean>
 
     <bean id="musicPlayer"
           class="com.mnykh.springcourse.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="musicList">
+            <list>
+                <ref bean="classicalMusicBean"/>
+                <ref bean="rockMusicBean"/>
+                <ref bean="electronicMusicBean"/>
+            </list>
+        </property>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
