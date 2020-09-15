@@ -8,7 +8,12 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="musicBean"
-          class="com.mnykh.springcourse.ElectronicMusic">
+          class="com.mnykh.springcourse.RockMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="com.mnykh.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
     </bean>
 
 </beans>
