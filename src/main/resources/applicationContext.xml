@@ -16,25 +16,28 @@
     </bean>
 
     <bean id="classicalMusicBean"
-          class="com.mnykh.springcourse.ClassicalMusic">
+          class="com.mnykh.springcourse.ClassicalMusic"
+          init-method="init"
+          factory-method="getClassicalMusic"
+          destroy-method="destroy">
     </bean>
 
     <bean id="rockMusicBean"
           class="com.mnykh.springcourse.RockMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="com.mnykh.springcourse.MusicPlayer"
-            scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="classicalMusicBean"/>
-                <ref bean="rockMusicBean"/>
-                <ref bean="electronicMusicBean"/>
-            </list>
-        </property>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id="musicPlayer"-->
+<!--          class="com.mnykh.springcourse.MusicPlayer"-->
+<!--            scope="prototype">-->
+<!--        <property name="musicList">-->
+<!--            <list>-->
+<!--                <ref bean="classicalMusicBean"/>-->
+<!--                <ref bean="rockMusicBean"/>-->
+<!--                <ref bean="electronicMusicBean"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
