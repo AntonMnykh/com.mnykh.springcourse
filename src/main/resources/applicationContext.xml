@@ -24,7 +24,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="com.mnykh.springcourse.MusicPlayer">
+          class="com.mnykh.springcourse.MusicPlayer"
+            scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusicBean"/>
