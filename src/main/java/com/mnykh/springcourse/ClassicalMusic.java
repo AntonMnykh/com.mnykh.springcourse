@@ -1,20 +1,9 @@
 package com.mnykh.springcourse;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ClassicalMusic implements Music{
-
-    private ClassicalMusic() {}
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-
-    public void init() {
-        System.out.println("Bean Initialization");
-    }
-
-    public void destroy() {
-        System.out.println("Bean Destruction");
-    }
 
     @Override
     public String getSong() {
