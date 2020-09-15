@@ -1,17 +1,19 @@
 package com.mnykh.springcourse;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MusicPlayer {
 
     private Music music;
 
+    @Autowired
     public MusicPlayer(Music music) {
         this.music = music;
     }
 
-    public void playMusic(){
-        System.out.println("Now is playing: " + music.getSong());
+    public String  playMusic(){
+        return "Now is playing: " + music.getSong();
     }
 }
